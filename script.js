@@ -1,1 +1,1 @@
-
+console.loh("Money Master")
