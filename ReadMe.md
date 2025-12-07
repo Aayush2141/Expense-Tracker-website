@@ -1,7 +1,7 @@
 📘 Expense Tracker Dashboard – README
 SpendWise – Expense Tracker Dashboard
 
-A clean, modern, and fully responsive web application to track daily expenses, visualize spending habits, and manage your personal budget—all built using HTML, TailwindCSS, JavaScript, and LocalStorage.
+A clean, modern, and fully responsive web application to track daily expenses, visualize spending habits, and manage your personal budget—all built using HTML, JavaScript, and LocalStorage.
 
 🚀 Features
 ✅ Add & Manage Expenses
