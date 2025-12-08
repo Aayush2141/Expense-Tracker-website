@@ -46,8 +46,6 @@ Fully responsive
 
 Soft shadows, rounded components
 
-TailwindCSS for rapid styling
-
 ✅ Extra Features
 
 Dark/Light Theme toggle
@@ -62,8 +60,6 @@ Modular and maintainable code structure
 Frontend
 
 HTML5
-
-TailwindCSS
 
 JavaScript (Vanilla)
 
