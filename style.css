@@ -106,3 +106,65 @@ header{
     color: rgb(212, 42, 42);
     font-size: 0.9rem;
 }
+.finances{
+    background: #003841;
+    color: white;
+    padding: 1rem;
+    height: 16rem;
+    width: 30rem;
+    border-radius: 20px;
+    margin: auto;
+    position: relative;
+    overflow: hidden ;
+}
+.card-name{
+    font-family: Montserrat;
+    font-weight: 700;
+    font-style: italic;
+    font-size: 1.6rem;
+}
+.card-chip{
+    height: 30px;
+    width: 49px;
+    background:#e8ebf1;
+    border-radius: 3px;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    margin-left: 1rem;
+    position: relative;
+}
+.card-num{
+    font-family: "Courier New", monospace;
+    font-size: 1.65rem;
+    font-weight: 550;
+    margin-left: 0.8rem;
+    letter-spacing: 0.2rem;
+    color: #e8ebf1;
+}
+.card-logo{
+    position: absolute;
+    bottom: 1rem;
+    right: 1rem;
+    display: flex;
+    gap:-8px;
+}
+.circle{
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+}
+.logo-red{
+    background: red;
+}
+.logo-orange{
+    background: orange;
+    margin-left: -8px;
+}
+.exp-date{
+    font-family: IBM Plex Mono;
+    margin-left: 0.8rem;
+}
+.card-owner{
+    font-family: IBM Plex Mono;
+    margin-left: 0.8rem;
+}
