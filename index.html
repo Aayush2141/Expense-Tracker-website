@@ -13,6 +13,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
 </head>
+
 <body>
     <header>
         <div class="logo">
@@ -64,30 +65,185 @@
                 <div class="card">
                     <div class="card-head">
                         <h3 class="card-heading">My finances</h3>
-                        <!-- <button class="menu"><i class="fas fa-ellipsis"></i></button> -->
+                        <button class="add">Add Card <i class="fas fa-plus"></i></button>
                     </div>
                     <div class="finances">
                         <div class="card-name">
-                            VISA 
+                            VISA
                         </div>
                         <div class="card-chip"></div>
                         <div class="card-num">
                             **** **** **** 5961
                         </div>
                         <div class="exp-date">Expires on: 19/08/29</div>
-                        <div class="card-owner">Smooth Operator</div>
+                        <div class="card-owner">Money Master</div>
                         <div class="card-logo">
                             <div class="circle logo-red"></div>
-                            <div class="circle logo-orange"></div> 
+                            <div class="circle logo-orange"></div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+
+        <div class="chart-section">
+            <div class="card">
+                <div class="card-head">
+                    <h3 class="card-heading">Overview</h3>
+                    <div style="display:flex; gap: 1rem;">
+                        <div class="dropdown">Yearly <i class="fas fa-chevron-down"></i></div>
+                        <div class="icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="chart-container">
+                    <div class="chart-bar" style="height: 118px;"></div>
+                    <div class="chart-bar" style="height: 80px;"></div>
+                    <div class="chart-bar" style="height: 110px;"></div>
+                    <div class="chart-bar active" style="height: 200px;">
+                        <div
+                            style="position: absolute; top: -30px; left: 50%; transform: translateX(-50%); background: white ; padding: 0.25rem 0.5rem; border-radius: 4px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); font-size: 0.75rem;">
+                            <div style="font-weight: 600;">April</div>
+                            <div style="color: orange;">Income ₹800</div>
+                            <div style="color: red;">Expense ₹500</div>
+                        </div>
+                        <div class="chart-bar-income" style="height: 120px;"></div>
+                        <div class="chart-bar-expense " style="height: 80px;"></div>
+                    </div>
+                    <div class="chart-bar" style="height: 124px;"></div>
+                    <div class="chart-bar" style="height: 90px;"></div>
+                    <div class="chart-bar" style="height: 100px;"></div>
+                    <div class="chart-bar" style="height: 130px;"></div>
+                    <div class="chart-bar" style="height: 80px;"></div>
+                    <div class="chart-bar" style="height: 111px;"></div>
+                    <div class="chart-bar" style="height: 140px;"></div>
+                    <div class="chart-bar" style="height: 105px;"></div>
+                </div>
+
+                <div class="chart-labels">
+                    <span>Jan</span>
+                    <span>Feb</span>
+                    <span>Mar</span>
+                    <span>Apr</span>
+                    <span>May</span>
+                    <span>June</span>
+                    <span>July</span>
+                    <span>Aug</span>
+                    <span>Sep</span>
+                    <span>Oct</span>
+                    <span>Nov</span>
+                    <span>Dec</span>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-head">
+                    <h3 class="card-heading">All Expenses</h3>
+                    <div style="display:flex; gap: 1rem;">
+                        <div class="icon">
+                            <i class="fas fa-chart-pie "></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="container-pie-chart">
+                    <div>
+                        <canvas id="pie-chart"></canvas>
+                    </div>
+                </div>
+                <div class="expense-categories">
+                    <ul class="expense-categories">
+                        <li class="expense-category">
+                            <div class="category-info">
+                                <div class="category-dot dot-food"></div>
+                                <span>Food</span>
+                            </div>
+                            <span>₹978.00</span>
+                        </li>
+                        <li class="expense-category">
+                            <div class="category-info">
+                                <div class="category-dot dot-health"></div>
+                                <span>Health</span>
+                            </div>
+                            <span>₹534.2</span>
+                        </li>
+                        <li class="expense-category">
+                            <div class="category-info">
+                                <div class="category-dot dot-shopping"></div>
+                                <span>Shopping</span>
+                            </div>
+                            <span>₹1038.23</span>
+                        </li>
+                        <li class="expense-category">
+                            <div class="category-info">
+                                <div class="category-dot dot-entertainment"></div>
+                                <span>Entertainment</span>
+                            </div>
+                            <span>₹345.03</span>
+                        </li>
+                        <li class="expense-category">
+                            <div class="category-info">
+                                <div class="category-dot dot-others"></div>
+                                <span>Others</span>
+                            </div>
+                            <span>₹276.89</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="card transaction-section">
+            <div class="card-head">
+                <h3 class="card-heading">Transactions</h3>
+            </div>
+            <table class="transactions-table">
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Category</th>
+                        <th>Amount</th>
+                        <th>Status</th>
+                        <th>Description </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Jan 25 2025</td>
+                        <td>Health</td>
+                        <td>₹500.00</td>
+                        <td><span class="status-success">Success</span></td>
+                        <td>---</td>
+                    </tr>
+                     <tr>
+                        <td>Feb 5 2025</td>
+                        <td>Shopping</td>
+                        <td>₹800.00</td>
+                        <td><span class="status-success">Success</span></td>
+                        <td>---</td>
+                    </tr>
+                     <tr>
+                        <td>Feb 12 2025</td>
+                        <td>Food</td>
+                        <td>₹300.00</td>
+                        <td><span class="status-success">Success</span></td>
+                        <td>---</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </main>
+    <div class="floating-buttons">
+        <button class="float-btn add-btn">
+            <i class="fas fa-plus"></i>
+        </button>
 
-
-
+        <button class="float-btn remove-btn">
+            <i class="fas fa-minus"></i>
+        </button>
+    </div>
     <script src="/script.js"></script>
 </body>
 </html>
