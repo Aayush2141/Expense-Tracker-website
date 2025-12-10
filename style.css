@@ -51,6 +51,15 @@ header {
     border-radius: 8px;
     padding: 0.5rem 0.9rem;
     cursor: pointer;
+    display: inline-block;
+}
+
+.daily select {
+    border: none;
+    background: transparent;
+    font-size: 1rem;
+    cursor: pointer;
+    outline: none;
 }
 
 .date {
