@@ -89,17 +89,33 @@ header {
 }
 
 .date {
-    border: 1px solid var(--border-strong);
+    border: 1px solid #d1d5db;
     border-radius: 8px;
-    padding: 0.5rem 0.9rem;
+    padding: 0.4rem 0.7rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: white;
+}
+
+.date input[type="date"] {
+    border: none;
+    background: transparent;
+    font-size: 0.95rem;
+    font-family: inherit;
+    color: #374151;
+    cursor: pointer;
+    outline: none;
+}
+
+.date input[type="date"]::-webkit-calendar-picker-indicator {
     cursor: pointer;
 }
 
 .export {
     background-color: orange;
-    /* background-color: #003841; */
     color: white;
-    /* border: 1px solid  #c4c7cb; */
     border-radius: 20px;
     padding: 0.5rem 0.9rem;
     cursor: pointer;
