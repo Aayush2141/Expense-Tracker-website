@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,10 +9,16 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wght@6..144,1..1000&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wght@6..144,1..1000&display=swap"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap"
+        rel="stylesheet">
 </head>
 
 <body>
@@ -95,13 +102,13 @@
                 <div class="card-head">
                     <h3 class="card-heading">Overview</h3>
                     <div style="display:flex; gap: 1rem;">
-                    <div class="daily">
-                        <select>
-                            <option>Daily</option>
-                            <option>Monthly</option>
-                            <option selected>Yearly</option>
-                        </select>
-                    </div>
+                        <div class="daily">
+                            <select>
+                                <option>Daily</option>
+                                <option>Monthly</option>
+                                <option selected>Yearly</option>
+                            </select>
+                        </div>
                         <div class="icon">
                             <i class="fas fa-chart-line"></i>
                         </div>
@@ -114,8 +121,7 @@
                     <div class="chart-bar" style="height: 80px;"></div>
                     <div class="chart-bar" style="height: 110px;"></div>
                     <div class="chart-bar active" style="height: 200px;">
-                        <div
-                            style="position: absolute; top: -30px; left: 50%; transform: translateX(-50%); background: white ; padding: 0.25rem 0.5rem; border-radius: 4px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); font-size: 0.75rem;">
+                        <div class="chart-tooltip">
                             <div style="font-weight: 600;">April</div>
                             <div style="color: orange;">Income ₹800</div>
                             <div style="color: red;">Expense ₹500</div>
@@ -227,14 +233,14 @@
                         <td><span class="status-success">Success</span></td>
                         <td>---</td>
                     </tr>
-                     <tr>
+                    <tr>
                         <td>Feb 5 2025</td>
                         <td>Shopping</td>
                         <td>₹800.00</td>
                         <td><span class="status-success">Success</span></td>
                         <td>---</td>
                     </tr>
-                     <tr>
+                    <tr>
                         <td>Feb 12 2025</td>
                         <td>Food</td>
                         <td>₹300.00</td>
@@ -245,6 +251,12 @@
             </table>
         </div>
     </main>
+    <div class="theme-toggle-container">
+        <button id="theme-toggle" class="float-btn theme-btn">
+            <i class="fas fa-moon"></i>
+        </button>
+    </div>
+
     <div class="floating-buttons">
         <button class="float-btn add-btn">
             <i class="fas fa-plus"></i>
@@ -256,4 +268,5 @@
     </div>
     <script src="/script.js"></script>
 </body>
+
 </html>
