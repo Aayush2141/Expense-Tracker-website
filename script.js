@@ -1,20 +1,9 @@
-// ============================================
-// Money Master - Expense Tracker JavaScript
-// Uses basic DOM manipulation with Chart.js
-// ============================================
-
-// Wait for DOM to load
 document.addEventListener('DOMContentLoaded', function() {
-    
-    // ============================================
-    // Theme Toggle Functionality
-    // ============================================
     
     var toggleBtn = document.getElementById('theme-toggle');
     var body = document.body;
     var icon = toggleBtn.querySelector('i');
 
-    // Check for saved theme in localStorage
     var currentTheme = localStorage.getItem('theme');
     if (currentTheme) {
         body.classList.add(currentTheme);
@@ -24,7 +13,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    // Theme toggle click handler
     toggleBtn.addEventListener('click', function() {
         body.classList.toggle('dark-mode');
 
@@ -38,33 +26,21 @@ document.addEventListener('DOMContentLoaded', function() {
             icon.classList.add('fa-moon');
         }
         localStorage.setItem('theme', theme);
-        
-        // Update charts for theme change
         updateChartsForTheme();
     });
 
-    // ============================================
-    // Chart.js Data
-    // ============================================
-    
-    // Monthly income and expense data for bar chart
     var monthlyData = {
         labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
         income: [8000, 9500, 7800, 10000, 8500, 9000, 11000, 9800, 10500, 8800, 9200, 10000],
         expense: [5500, 6200, 5800, 7000, 6000, 5500, 7200, 6800, 7000, 5900, 6100, 7000]
     };
 
-    // Expense category data for pie chart
     var expenseCategories = {
         labels: ['Food', 'Health', 'Shopping', 'Entertainment', 'Others'],
         values: [978, 534.20, 1038.23, 345.03, 276.89],
         colors: ['#ff6b6b', '#4ecdc4', '#ffd93d', '#6c5ce7', '#a8a8a8']
     };
 
-    // ============================================
-    // Bar Chart (Overview)
-    // ============================================
-    
     var barChartCanvas = document.getElementById('bar-chart');
     var barChart = null;
 
@@ -150,10 +126,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // ============================================
-    // Pie Chart (Expenses by Category)
-    // ============================================
-    
     var pieChartCanvas = document.getElementById('pie-chart');
     var pieChart = null;
 
@@ -203,7 +175,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Update charts when theme changes
     function updateChartsForTheme() {
         if (barChart) {
             barChart.destroy();
@@ -215,15 +186,9 @@ document.addEventListener('DOMContentLoaded', function() {
         createPieChart();
     }
 
-    // Initialize charts
     createBarChart();
     createPieChart();
 
-    // ============================================
-    // Transaction Data
-    // ============================================
-    
-    // Store transactions in an array
     var transactions = [
         { date: 'Jan 25 2025', category: 'Health', amount: 500.00, status: 'Success', description: 'Medical checkup' },
         { date: 'Feb 5 2025', category: 'Shopping', amount: 800.00, status: 'Success', description: 'Clothes purchase' },
@@ -232,21 +197,14 @@ document.addEventListener('DOMContentLoaded', function() {
         { date: 'Mar 15 2025', category: 'Others', amount: 200.00, status: 'Success', description: 'Miscellaneous' }
     ];
 
-    // ============================================
-    // CSV Export Functionality
-    // ============================================
-    
     var exportBtn = document.getElementById('export-btn');
 
-    // Convert transactions to CSV format
     function convertToCSV(data) {
         var headers = ['Date', 'Category', 'Amount', 'Status', 'Description'];
         var csvRows = [];
         
-        // Add headers
         csvRows.push(headers.join(','));
         
-        // Add data rows
         for (var i = 0; i < data.length; i++) {
             var row = data[i];
             var values = [
@@ -254,7 +212,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 row.category,
                 row.amount.toFixed(2),
                 row.status,
-                '"' + row.description + '"'  // Wrap description in quotes to handle commas
+                '"' + row.description + '"'
             ];
             csvRows.push(values.join(','));
         }
@@ -262,16 +220,13 @@ document.addEventListener('DOMContentLoaded', function() {
         return csvRows.join('\n');
     }
 
-    // Download CSV file
     function downloadCSV(csvContent, filename) {
         var blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
         var link = document.createElement('a');
         
         if (navigator.msSaveBlob) {
-            // For IE 10+
             navigator.msSaveBlob(blob, filename);
         } else {
-            // For other browsers
             var url = URL.createObjectURL(blob);
             link.setAttribute('href', url);
             link.setAttribute('download', filename);
@@ -283,7 +238,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    // Export button click handler
     exportBtn.addEventListener('click', function() {
         var csvContent = convertToCSV(transactions);
         var today = new Date();
@@ -295,10 +249,6 @@ document.addEventListener('DOMContentLoaded', function() {
         downloadCSV(csvContent, filename);
     });
 
-    // ============================================
-    // Modal Functionality
-    // ============================================
-    
     var modalOverlay = document.getElementById('modal-overlay');
     var modalClose = document.getElementById('modal-close');
     var addTransactionBtn = document.getElementById('add-transaction-btn');
@@ -306,45 +256,37 @@ document.addEventListener('DOMContentLoaded', function() {
     var transactionForm = document.getElementById('transaction-form');
     var transactionsBody = document.getElementById('transactions-body');
 
-    // Open modal
     function openModal() {
         modalOverlay.classList.add('active');
-        // Set default date to today
         var today = new Date().toISOString().split('T')[0];
         document.getElementById('trans-date').value = today;
     }
 
-    // Close modal
     function closeModal() {
         modalOverlay.classList.remove('active');
         transactionForm.reset();
     }
 
-    // Add transaction button click
     addTransactionBtn.addEventListener('click', function() {
         openModal();
     });
 
-    // Close modal button click
     modalClose.addEventListener('click', function() {
         closeModal();
     });
 
-    // Close modal when clicking outside
     modalOverlay.addEventListener('click', function(e) {
         if (e.target === modalOverlay) {
             closeModal();
         }
     });
 
-    // Format date for display
     function formatDate(dateString) {
         var date = new Date(dateString);
         var months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
         return months[date.getMonth()] + ' ' + date.getDate() + ' ' + date.getFullYear();
     }
 
-    // Add new transaction to table
     function addTransactionToTable(transaction) {
         var row = document.createElement('tr');
         row.innerHTML = '<td>' + transaction.date + '</td>' +
@@ -355,9 +297,7 @@ document.addEventListener('DOMContentLoaded', function() {
         transactionsBody.appendChild(row);
     }
 
-    // Handle form submission
     transactionForm.addEventListener('submit', function(e) {
-        
         e.preventDefault();
         
         var dateInput = document.getElementById('trans-date').value;
@@ -373,17 +313,11 @@ document.addEventListener('DOMContentLoaded', function() {
             description: description
         };
         
-        // Add to transactions array
         transactions.push(newTransaction);
-        
-        // Add to table
         addTransactionToTable(newTransaction);
-        
-        // Close modal
         closeModal();
     });
 
-    // Remove last transaction
     removeTransactionBtn.addEventListener('click', function() {
         if (transactions.length > 0) {
             transactions.pop();
@@ -394,10 +328,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // ============================================
-    // Set Current Date in Navbar
-    // ============================================
-    
     var navbarDate = document.getElementById('navbar-date');
     var today = new Date().toISOString().split('T')[0];
     navbarDate.value = today;
