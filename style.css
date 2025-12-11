@@ -414,7 +414,8 @@ header,
     border-radius: 8px;
     padding: 0.5rem 0.9rem;
     cursor: pointer;
-    background: white;
+    background: var(--surface-color);
+    color: var(--text-primary);
 }
 
 .dropdown {
