@@ -4,7 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Money Master</title>
+    <title>Money Master - Expense Tracker</title>
+    <meta name="description" content="Track your expenses and income with Money Master - a beautiful expense tracker with visual charts and insights.">
     <link href="/style.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -19,63 +20,65 @@
     <link
         href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap"
         rel="stylesheet">
+    <!-- Chart.js CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
 </head>
 
 <body>
-    <header>
+    <header class="glass-header">
         <div class="logo">
-            <img src="/WhatsApp Image 2025-12-08 at 01.51.18.jpeg" class="logo-img">
+            <img src="MoneyMasterLogo.jpeg" class="logo-img">
             <h1>Welcome, Money Master!</h1>
         </div>
         <div class="options">
-            <div class="daily">
-                <select>
+            <div class="daily glass-select">
+                <select id="period-select">
                     <option>Daily</option>
                     <option>Monthly</option>
                     <option>Yearly</option>
                 </select>
             </div>
-            <div class="date">      
+            <div class="date glass-input">
                 <input type="date" id="navbar-date" />
             </div>
-            <div class="export">
+            <button class="export glass-btn" id="export-btn">
                 <i class="fas fa-download"></i>
-                Export
-            </div>
+                Export CSV
+            </button>
         </div>
     </header>
 
     <main>
         <div class="main-part">
             <div class="cards-grid">
-                <div class="card">
+                <div class="card glass-card">
                     <div class="card-head">
                         <h3 class="card-heading">Monthly Income</h3>
                         <button class="menu"><i class="fas fa-ellipsis"></i></button>
                     </div>
-                    <div class="income-amount">Rs. 10,000</div>
+                    <div class="income-amount" id="monthly-income">Rs. 10,000</div>
                     <div class="income-change">
                         <i class="fas fa-arrow-up"></i>
                         12 % vs Last Month
                     </div>
                 </div>
 
-                <div class="card">
+                <div class="card glass-card">
                     <div class="card-head">
                         <h3 class="card-heading">Monthly Expense</h3>
                         <button class="menu"><i class="fas fa-ellipsis"></i></button>
                     </div>
-                    <div class="income-amount">Rs. 7,000</div>
+                    <div class="income-amount" id="monthly-expense">Rs. 7,000</div>
                     <div class="expense-change">
                         <i class="fas fa-arrow-up"></i>
                         5% vs Last Month
                     </div>
                 </div>
 
-                <div class="card">
+                <div class="card glass-card">
                     <div class="card-head">
                         <h3 class="card-heading">My finances</h3>
-                        <button class="add">Add Card <i class="fas fa-plus"></i></button>
+                        <button class="add glass-btn-small">Add Card <i class="fas fa-plus"></i></button>
                     </div>
                     <div class="finances">
                         <div class="card-name">
@@ -97,12 +100,12 @@
         </div>
 
         <div class="chart-section">
-            <div class="card">
+            <div class="card glass-card">
                 <div class="card-head">
                     <h3 class="card-heading">Overview</h3>
                     <div style="display:flex; gap: 1rem;">
-                        <div class="daily">
-                            <select>
+                        <div class="daily glass-select-small">
+                            <select id="chart-period-select">
                                 <option>Daily</option>
                                 <option>Monthly</option>
                                 <option selected>Yearly</option>
@@ -114,47 +117,24 @@
                     </div>
                 </div>
 
-
-                <div class="chart-container">
-                    <div class="chart-bar" style="height: 118px;"></div>
-                    <div class="chart-bar" style="height: 80px;"></div>
-                    <div class="chart-bar" style="height: 110px;"></div>
-                    <div class="chart-bar active" style="height: 200px;">
-                        <div class="chart-tooltip">
-                            <div style="font-weight: 600;">April</div>
-                            <div style="color: orange;">Income ₹800</div>
-                            <div style="color: red;">Expense ₹500</div>
-                        </div>
-                        <div class="chart-bar-income" style="height: 120px;"></div>
-                        <div class="chart-bar-expense " style="height: 80px;"></div>
-                    </div>
-                    <div class="chart-bar" style="height: 124px;"></div>
-                    <div class="chart-bar" style="height: 90px;"></div>
-                    <div class="chart-bar" style="height: 100px;"></div>
-                    <div class="chart-bar" style="height: 130px;"></div>
-                    <div class="chart-bar" style="height: 80px;"></div>
-                    <div class="chart-bar" style="height: 111px;"></div>
-                    <div class="chart-bar" style="height: 140px;"></div>
-                    <div class="chart-bar" style="height: 105px;"></div>
+                <!-- Chart.js Bar Chart -->
+                <div class="chart-container-canvas">
+                    <canvas id="bar-chart"></canvas>
                 </div>
 
-                <div class="chart-labels">
-                    <span>Jan</span>
-                    <span>Feb</span>
-                    <span>Mar</span>
-                    <span>Apr</span>
-                    <span>May</span>
-                    <span>June</span>
-                    <span>July</span>
-                    <span>Aug</span>
-                    <span>Sep</span>
-                    <span>Oct</span>
-                    <span>Nov</span>
-                    <span>Dec</span>
+                <div class="chart-legend">
+                    <div class="legend-item">
+                        <span class="legend-color income-legend"></span>
+                        <span>Income</span>
+                    </div>
+                    <div class="legend-item">
+                        <span class="legend-color expense-legend"></span>
+                        <span>Expense</span>
+                    </div>
                 </div>
             </div>
 
-            <div class="card">
+            <div class="card glass-card">
                 <div class="card-head">
                     <h3 class="card-heading">All Expenses</h3>
                     <div style="display:flex; gap: 1rem;">
@@ -164,13 +144,12 @@
                     </div>
                 </div>
 
+                <!-- Chart.js Pie Chart -->
                 <div class="container-pie-chart">
-                    <div>
-                        <canvas id="pie-chart"></canvas>
-                    </div>
+                    <canvas id="pie-chart"></canvas>
                 </div>
                 <div class="expense-categories">
-                    <ul class="expense-categories">
+                    <ul class="expense-categories-list">
                         <li class="expense-category">
                             <div class="category-info">
                                 <div class="category-dot dot-food"></div>
@@ -183,7 +162,7 @@
                                 <div class="category-dot dot-health"></div>
                                 <span>Health</span>
                             </div>
-                            <span>₹534.2</span>
+                            <span>₹534.20</span>
                         </li>
                         <li class="expense-category">
                             <div class="category-info">
@@ -210,11 +189,11 @@
                 </div>
             </div>
         </div>
-        <div class="card transaction-section">
+        <div class="card glass-card transaction-section">
             <div class="card-head">
                 <h3 class="card-heading">Transactions</h3>
             </div>
-            <table class="transactions-table">
+            <table class="transactions-table" id="transactions-table">
                 <thead>
                     <tr>
                         <th>Date</th>
@@ -224,47 +203,97 @@
                         <th>Description </th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody id="transactions-body">
                     <tr>
                         <td>Jan 25 2025</td>
                         <td>Health</td>
                         <td>₹500.00</td>
                         <td><span class="status-success">Success</span></td>
-                        <td>---</td>
+                        <td>Medical checkup</td>
                     </tr>
                     <tr>
                         <td>Feb 5 2025</td>
                         <td>Shopping</td>
                         <td>₹800.00</td>
                         <td><span class="status-success">Success</span></td>
-                        <td>---</td>
+                        <td>Clothes purchase</td>
                     </tr>
                     <tr>
                         <td>Feb 12 2025</td>
                         <td>Food</td>
                         <td>₹300.00</td>
                         <td><span class="status-success">Success</span></td>
-                        <td>---</td>
+                        <td>Restaurant dinner</td>
+                    </tr>
+                    <tr>
+                        <td>Mar 1 2025</td>
+                        <td>Entertainment</td>
+                        <td>₹450.00</td>
+                        <td><span class="status-success">Success</span></td>
+                        <td>Movie tickets</td>
+                    </tr>
+                    <tr>
+                        <td>Mar 15 2025</td>
+                        <td>Others</td>
+                        <td>₹200.00</td>
+                        <td><span class="status-success">Success</span></td>
+                        <td>Miscellaneous</td>
                     </tr>
                 </tbody>
             </table>
         </div>
     </main>
     <div class="theme-toggle-container">
-        <button id="theme-toggle" class="float-btn theme-btn">
+        <button id="theme-toggle" class="float-btn theme-btn glass-float">
             <i class="fas fa-moon"></i>
         </button>
     </div>
 
     <div class="floating-buttons">
-        <button class="float-btn add-btn">
+        <button class="float-btn add-btn glass-float" id="add-transaction-btn">
             <i class="fas fa-plus"></i>
         </button>
 
-        <button class="float-btn remove-btn">
+        <button class="float-btn remove-btn glass-float" id="remove-transaction-btn">
             <i class="fas fa-minus"></i>
         </button>
     </div>
+
+    <!-- Add Transaction Modal -->
+    <div class="modal-overlay" id="modal-overlay">
+        <div class="modal glass-modal">
+            <div class="modal-header">
+                <h2>Add Transaction</h2>
+                <button class="modal-close" id="modal-close">&times;</button>
+            </div>
+            <form id="transaction-form">
+                <div class="form-group">
+                    <label for="trans-date">Date</label>
+                    <input type="date" id="trans-date" required>
+                </div>
+                <div class="form-group">
+                    <label for="trans-category">Category</label>
+                    <select id="trans-category" required>
+                        <option value="Food">Food</option>
+                        <option value="Health">Health</option>
+                        <option value="Shopping">Shopping</option>
+                        <option value="Entertainment">Entertainment</option>
+                        <option value="Others">Others</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="trans-amount">Amount (₹)</label>
+                    <input type="number" id="trans-amount" placeholder="Enter amount" required min="0" step="0.01">
+                </div>
+                <div class="form-group">
+                    <label for="trans-description">Description</label>
+                    <input type="text" id="trans-description" placeholder="Enter description" required>
+                </div>
+                <button type="submit" class="submit-btn glass-btn">Add Transaction</button>
+            </form>
+        </div>
+    </div>
+
     <script src="/script.js"></script>
 </body>
 

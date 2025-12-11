@@ -1,10 +1,8 @@
-console.log("Money Master")
 document.addEventListener('DOMContentLoaded', () => {
     const toggleBtn = document.getElementById('theme-toggle');
     const body = document.body;
     const icon = toggleBtn.querySelector('i');
 
-    // Check for saved user preference, if any, on load of the website
     const currentTheme = localStorage.getItem('theme');
     if (currentTheme) {
         body.classList.add(currentTheme);
