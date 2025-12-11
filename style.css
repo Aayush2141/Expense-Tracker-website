@@ -8,11 +8,9 @@
     --card-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
     --card-hover-shadow: 0 12px 25px rgba(0, 0, 0, 0.12);
     --chart-bar-bg: #e6e7eb;
-    /* Glassmorphism variables */
-    --glass-bg: rgba(255, 255, 255, 0.25);
-    --glass-border: rgba(255, 255, 255, 0.18);
+    --glass-bg: rgba(255, 255, 255, 0.7);
+    --glass-border: rgba(255, 255, 255, 0.3);
     --glass-shadow: 0 8px 32px rgba(31, 38, 135, 0.15);
-    --glass-blur: blur(16px);
     --accent-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     --accent-orange: #f97316;
     --accent-green: #22c55e;
@@ -28,8 +26,7 @@
     --card-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
     --card-hover-shadow: 0 12px 25px rgba(0, 0, 0, 0.3);
     --chart-bar-bg: #374151;
-    /* Dark mode glassmorphism */
-    --glass-bg: rgba(30, 41, 59, 0.6);
+    --glass-bg: rgba(30, 41, 59, 0.9);
     --glass-border: rgba(255, 255, 255, 0.08);
     --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
 }
@@ -44,21 +41,14 @@
 body {
     font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     background: var(--bg-color);
-    background-image: 
-        radial-gradient(at 40% 20%, rgba(102, 126, 234, 0.15) 0px, transparent 50%),
-        radial-gradient(at 80% 80%, rgba(118, 75, 162, 0.1) 0px, transparent 50%),
-        radial-gradient(at 10% 90%, rgba(249, 115, 22, 0.1) 0px, transparent 50%);
     min-height: 100vh;
     color: var(--text-primary);
     line-height: 1.5;
 }
 
-/* Glassmorphism Header */
 header,
 .glass-header {
     background: var(--glass-bg);
-    backdrop-filter: var(--glass-blur);
-    -webkit-backdrop-filter: var(--glass-blur);
     border-bottom: 1px solid var(--glass-border);
     box-shadow: var(--glass-shadow);
     padding: 1rem 2rem;
@@ -101,12 +91,9 @@ header,
     align-items: center;
 }
 
-/* Glass Select Dropdowns */
 .glass-select,
 .daily {
     background: var(--glass-bg);
-    backdrop-filter: var(--glass-blur);
-    -webkit-backdrop-filter: var(--glass-blur);
     border: 1px solid var(--glass-border);
     border-radius: 12px;
     padding: 0.5rem 1rem;
@@ -117,7 +104,7 @@ header,
 
 .glass-select:hover,
 .daily:hover {
-    background: rgba(255, 255, 255, 0.35);
+    background: rgba(255, 255, 255, 0.5);
     transform: translateY(-2px);
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
@@ -135,8 +122,6 @@ header,
 
 .glass-select-small {
     background: var(--glass-bg);
-    backdrop-filter: var(--glass-blur);
-    -webkit-backdrop-filter: var(--glass-blur);
     border: 1px solid var(--glass-border);
     border-radius: 8px;
     padding: 0.3rem 0.7rem;
@@ -152,12 +137,9 @@ header,
     color: var(--text-primary);
 }
 
-/* Glass Input */
 .glass-input,
 .date {
     background: var(--glass-bg);
-    backdrop-filter: var(--glass-blur);
-    -webkit-backdrop-filter: var(--glass-blur);
     border: 1px solid var(--glass-border);
     border-radius: 12px;
     padding: 0.5rem 1rem;
@@ -170,7 +152,7 @@ header,
 
 .glass-input:hover,
 .date:hover {
-    background: rgba(255, 255, 255, 0.35);
+    background: rgba(255, 255, 255, 0.5);
     transform: translateY(-2px);
 }
 
@@ -194,7 +176,6 @@ header,
     filter: invert(0.8);
 }
 
-/* Glass Button */
 .glass-btn,
 .export {
     background: var(--accent-gradient);
@@ -220,8 +201,6 @@ header,
 
 .glass-btn-small {
     background: var(--glass-bg);
-    backdrop-filter: var(--glass-blur);
-    -webkit-backdrop-filter: var(--glass-blur);
     border: 1px solid var(--glass-border);
     border-radius: 8px;
     padding: 0.4rem 0.8rem;
@@ -232,7 +211,7 @@ header,
 }
 
 .glass-btn-small:hover {
-    background: rgba(255, 255, 255, 0.4);
+    background: rgba(255, 255, 255, 0.5);
     transform: translateY(-1px);
 }
 
@@ -249,12 +228,9 @@ header,
     margin-bottom: 2rem;
 }
 
-/* Glassmorphism Card */
 .card,
 .glass-card {
     background: var(--glass-bg);
-    backdrop-filter: var(--glass-blur);
-    -webkit-backdrop-filter: var(--glass-blur);
     border: 1px solid var(--glass-border);
     border-radius: 20px;
     padding: 1.5rem;
@@ -343,7 +319,6 @@ header,
     gap: 0.3rem;
 }
 
-/* Credit Card Styling */
 .finances {
     background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
     color: white;
@@ -356,16 +331,6 @@ header,
     position: relative;
     overflow: hidden;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-}
-
-.finances::before {
-    content: '';
-    position: absolute;
-    top: -50%;
-    right: -50%;
-    width: 100%;
-    height: 100%;
-    background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 60%);
 }
 
 .card-name {
@@ -395,7 +360,7 @@ header,
     transform: translate(-50%, -50%);
     width: 70%;
     height: 1px;
-    background: rgba(0,0,0,0.2);
+    background: rgba(0, 0, 0, 0.2);
 }
 
 .card-num {
@@ -434,7 +399,7 @@ header,
     font-family: 'IBM Plex Mono', monospace;
     font-size: 0.85rem;
     margin-left: 0.5rem;
-    color: rgba(255,255,255,0.8);
+    color: rgba(255, 255, 255, 0.8);
 }
 
 .card-owner {
@@ -470,7 +435,6 @@ header,
     margin: 0 auto;
 }
 
-/* Chart.js Container */
 .chart-container-canvas {
     height: 300px;
     position: relative;
@@ -504,14 +468,13 @@ header,
 }
 
 .income-legend {
-    background: linear-gradient(135deg, #22c55e, #16a34a);
+    background: #22c55e;
 }
 
 .expense-legend {
-    background: linear-gradient(135deg, #f97316, #ea580c);
+    background: #f97316;
 }
 
-/* Pie Chart Container */
 .container-pie-chart {
     width: 100%;
     max-width: 200px;
@@ -579,7 +542,6 @@ header,
     background: #a8a8a8;
 }
 
-/* Transactions Section */
 .transaction-section {
     margin: 2rem;
     display: grid;
@@ -618,7 +580,7 @@ header,
 }
 
 .status-success {
-    background: linear-gradient(135deg, #22c55e, #16a34a);
+    background: #22c55e;
     color: white;
     padding: 0.3rem 0.8rem;
     border-radius: 20px;
@@ -634,7 +596,6 @@ header,
     color: var(--text-primary);
 }
 
-/* Floating Buttons */
 .floating-buttons {
     position: fixed;
     bottom: 20px;
@@ -665,7 +626,7 @@ header,
 }
 
 .add-btn {
-    background: linear-gradient(135deg, #f97316, #ea580c);
+    background: #f97316;
     box-shadow: 0 6px 20px rgba(249, 115, 22, 0.4);
 }
 
@@ -674,7 +635,7 @@ header,
 }
 
 .remove-btn {
-    background: linear-gradient(135deg, #ef4444, #dc2626);
+    background: #ef4444;
     box-shadow: 0 6px 20px rgba(239, 68, 68, 0.4);
 }
 
@@ -690,17 +651,16 @@ header,
 }
 
 .theme-btn {
-    background: linear-gradient(135deg, #1e293b, #334155);
+    background: #1e293b;
     color: #f3f4f6;
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
 }
 
 .dark-mode .theme-btn {
-    background: linear-gradient(135deg, #fbbf24, #f59e0b);
+    background: #fbbf24;
     color: #1f2937;
 }
 
-/* Modal Styles */
 .modal-overlay {
     position: fixed;
     top: 0;
@@ -708,7 +668,6 @@ header,
     width: 100%;
     height: 100%;
     background: rgba(0, 0, 0, 0.5);
-    backdrop-filter: blur(8px);
     display: none;
     align-items: center;
     justify-content: center;
@@ -725,8 +684,6 @@ header,
 .modal,
 .glass-modal {
     background: var(--glass-bg);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
     border: 1px solid var(--glass-border);
     border-radius: 24px;
     padding: 2rem;
@@ -785,7 +742,7 @@ header,
 .form-group select {
     width: 100%;
     padding: 0.8rem 1rem;
-    background: rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.3);
     border: 1px solid var(--glass-border);
     border-radius: 12px;
     font-size: 1rem;
@@ -796,7 +753,7 @@ header,
 
 .form-group input:focus,
 .form-group select:focus {
-    background: rgba(255, 255, 255, 0.3);
+    background: rgba(255, 255, 255, 0.4);
     border-color: #667eea;
     box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.2);
 }
@@ -812,7 +769,6 @@ header,
     font-size: 1rem;
 }
 
-/* Responsive Design */
 @media (max-width: 1200px) {
     .cards-grid {
         grid-template-columns: 1fr 1fr;
@@ -861,12 +817,12 @@ header,
     }
 }
 
-/* Animation for cards */
 @keyframes fadeInUp {
     from {
         opacity: 0;
         transform: translateY(20px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
@@ -877,6 +833,14 @@ header,
     animation: fadeInUp 0.5s ease forwards;
 }
 
-.cards-grid .card:nth-child(1) { animation-delay: 0.1s; }
-.cards-grid .card:nth-child(2) { animation-delay: 0.2s; }
-.cards-grid .card:nth-child(3) { animation-delay: 0.3s; }
+.cards-grid .card:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.cards-grid .card:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.cards-grid .card:nth-child(3) {
+    animation-delay: 0.3s;
+}
