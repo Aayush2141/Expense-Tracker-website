@@ -94,14 +94,12 @@ header,
     display: inline-block;
     transition: all 0.3s ease;
 }
-
 .glass-select:hover,
 .daily:hover {
     background: rgba(255, 255, 255, 0.5);
     transform: translateY(-2px);
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
-
 .daily select,
 .glass-select select {
     border: none;
@@ -112,7 +110,6 @@ header,
     color: var(--text-primary);
     font-weight: 500;
 }
-
 .glass-select-small {
     background: var(--glass-bg);
     border: 1px solid var(--glass-border);
@@ -120,7 +117,6 @@ header,
     padding: 0.3rem 0.7rem;
     cursor: pointer;
 }
-
 .glass-select-small select {
     border: none;
     background: transparent;
@@ -129,7 +125,6 @@ header,
     outline: none;
     color: var(--text-primary);
 }
-
 .glass-input,
 .date {
     background: var(--glass-bg);
@@ -142,7 +137,6 @@ header,
     gap: 0.5rem;
     transition: all 0.3s ease;
 }
-
 .glass-input:hover,
 .date:hover {
     background: rgba(255, 255, 255, 0.5);
@@ -839,4 +833,5 @@ header,
     animation-delay: 0.3s;
 
 }
+
 
