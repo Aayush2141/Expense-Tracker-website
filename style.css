@@ -42,7 +42,6 @@ body {
     color: var(--text-primary);
     line-height: 1.5;
 }
-
 header,
 .glass-header {
     background: var(--glass-bg);
@@ -56,21 +55,18 @@ header,
     top: 0;
     z-index: 100;
 }
-
 .logo {
     display: flex;
     justify-content: space-between;
     align-items: center;
     gap: 12px;
 }
-
 .logo-img {
     width: 4rem;
     height: 4rem;
     border-radius: 12px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
-
 .logo h1 {
     font-family: "Google Sans Flex", sans-serif;
     font-size: 1.8rem;
@@ -843,3 +839,4 @@ header,
     animation-delay: 0.3s;
 
 }
+
